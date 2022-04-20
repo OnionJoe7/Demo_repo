@@ -1,0 +1,42 @@
+<script>
+  function newLocation() {
+        window.location.href="..\\Register\\reg.html";
+        }
+
+        function userName() {
+    var input = document.getElementById("username-field").value;
+    alert("username "+input+" registered.");
+    window.location.href="Password\\PWreg.html";
+    // cred.usn = input;
+    // console.log(cred);
+    // console.log(cred.usn);
+    localStorage.setItem("usn", input);
+    var usn = localStorage.getItem("usn");
+    console.log(usn)
+        }
+</script>
+
+
+  <form action="action_page.php" method="post">
+    <div class="imgcontainer">
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+  
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="button" value="Register Username" onclick="userName()" id="register-form-submit">
+      <button type="submit">Login, onclick="userName()"</button>
+      <!-- <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label> -->
+    </div>
+  
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form> 

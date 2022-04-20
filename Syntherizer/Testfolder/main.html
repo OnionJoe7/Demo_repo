@@ -1,0 +1,161 @@
+
+
+
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="regcss.css">
+  <script defer src="regjav.js"></script>
+  <script defer src="globals.js"></script>
+  <script src="thirdparty\\dist\\FileSaver.js"></script>
+  <script>
+    // var cred = [];
+    // function saveStaticDataToFile(input) {
+    //         var blob = new Blob([input],
+    //             { type: "text/plain;charset=utf-8" });
+    //         saveAs(blob, "static.txt");
+    //     }
+
+    function newLocation() {
+        window.location.href="..\\Register\\reg.html";
+    }
+    function userName() {
+    var input = document.getElementById("username-field").value;
+    alert("username "+input+" registered.");
+    window.location.href="Password\\PWreg.html";
+    // cred.usn = input;
+    // console.log(cred);
+    // console.log(cred.usn);
+    localStorage.setItem("usn", input);
+    var usn = localStorage.getItem("usn");
+    console.log(usn)
+
+    }
+
+    /// V FILE CREATION V \\\
+
+        // #2 try    
+        function saveStaticDataToFile(x, y) {
+          var text = 'Username: ' + x + '\nPassword :' + y;
+          var blob = new Blob([text],
+                { type: "text/plain;charset=utf-8" });
+          saveAs(blob, "static.txt");
+}
+    
+        // #1 try
+    function WriteToFile(x, y) {
+ 
+    let fso = Object.create("Scripting.FileSystemObject"); 
+    let s   = fso.CreateTextFile('\\Saved_Credentials\\myFile.txt', True);
+
+      // var pwd = localStorage.getItem("pwd");
+      // var usn = localStorage.getItem('usrname');
+
+    s.writeline("Username: " + x);
+    s.writeline("Password: " + y);
+
+    s.writeline("-----------------------------");
+    s.Close();
+    }
+        // #1 try
+    
+    function pwReg() {  
+        var usrname = document.getElementById("username-field").value;
+        var input = document.getElementById("password-field").value;
+        if (input.length >= 6 && input.length <= 8 ) {  
+          alert("Enter password again: ");
+          let usrinput = prompt("Please re-enter password: ");
+          if (usrinput == null || usrinput == "" || usrinput != input) {
+              alert("Password mismatch. Try again");
+              pwReg() 
+          } else {
+              alert("Passwords match. Click 'OK' to proceed to the Syntherizer");
+              localStorage.setItem("usrname", input);
+              localStorage.setItem("pwd", input);
+              var pwd = localStorage.getItem("pwd");
+              var usn = localStorage.getItem('usrname');
+              WriteToFile(usn, pwd)   //filecreation #1 try
+              alert('Username: ' + usrname + ' ' + 'registered with password: ' + pwd + '.' + ' ' + '\nRemember this')
+              // alert(userprint)
+              // cred.pwd = usrinput;
+              // console.log(cred)
+              // console.log(cred);
+              // var password = input
+
+              
+
+              // var hiddenElement = document.createElement('a');
+              // hiddenElement.href = 'data:attachment/text,' + encodeURI('Username: ' + usrname + '\nPassword: ' + input);
+              // //hiddenElement.target = '_blank';
+              // hiddenElement.download = '\\Saved_Credentials\\myFile.txt';
+              // hiddenElement.click();
+              // window.location.href="..\\..\\Authsynth\\main.html";
+                }  
+            
+    
+        } else {
+         // alert(input.length)
+          alert('Password too short. ' + input.length + ' is invalid length. ' + 'Must be between 6 and 8 in length. \nTry again');
+          location.reload();
+          }
+        
+        }
+    
+		
+    
+
+
+  </script>
+</head>
+
+<body>
+  <main id="main-holder">
+    <h1 id="login-header">Register User</h1>
+    
+    <!-- <div id="login-error-msg-holder">
+      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div> -->
+    <form id="register-form" action="saveCredentials.php" method="POST">
+        <fieldset>
+          <!-- <legend>Add to log</legend> -->
+          <input type="text" name="username" id="username-field" class="register-form-field" placeholder="Username">
+          <input type="text" name="password" id="password-field" class="register-form-field" placeholder="Password">
+          <!-- <p>
+            Message:
+            <textarea name="message"></textarea>
+          </p> -->
+          <!-- <p> -->
+          <!-- <input type="submit" value="SAVE" /> -->
+          <input type="submit" value="Register Password" id="register-form-submit" >
+          <!-- </p> -->
+        </fieldset>
+      </form>
+        
+        
+        <!-- <form id="register-form" onsubmit)="return false;">
+          <input type="text" name="username" id="username-field" class="register-form-field" placeholder="Username"> -->
+          <!-- <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password"> -->
+          <!-- <input type="submit" value="Submit" id="register-form-submit"> -->
+          <!-- <input   style=position:absolute;top:50%;left:5%;width:40%; type="submit"    onclick="userName()"> -->
+          <!-- <input type="button" value="Register Username" onclick="userName()" id="register-form-submit"> -->
+          <!-- <form id="register-form" onsubmit)="return false;">
+            <input type="text" name="username" id="password-field" class="register-form-field" placeholder="Password"> -->
+            <!-- <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password"> -->
+            <!-- <input type="submit" value="Submit" id="register-form-submit"> -->
+            <!-- <input   style=position:absolute;top:50%;left:5%;width:40%; type="submit"    onclick="userName()"> -->
+          <!-- <input type="button" value="Register Password" onclick="pwReg()" id="register-form-submit"> -->
+        <!-- </form> -->
+
+
+  </main>
+</body>
+
+</html>
+
+
+
+<!-- SAVE VARIABLES https://www.websparrow.org/web/how-to-create-and-save-text-file-in-javascript -->

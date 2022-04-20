@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="..\\regcss.css">
+  <script defer src="..\\regjav.js"></script>
+  <script defer src="..\\Globals.js"></script>
+
+  <script>
+      
+    // function userName() {
+    // var input = document.getElementById("username-field").value;
+    // alert(input);
+    // window.location.href="Password\\PWreg.html";
+    // }
+    
+    function pwReg() {
+        var input = document.getElementById("username-field").value;
+        alert("Enter password again");
+
+        let usrinput = prompt("Please re-enter password: ");
+        if (usrinput == null || usrinput == "" || usrinput != input) {
+            alert("Password mismatch. Try again");
+            pwReg()
+        } else {
+            alert("Passwords match. Click 'OK' to proceed to the Syntherizer");
+            localStorage.setItem("pwd", input);
+            var pwd = localStorage.getItem("pwd");
+            var userprint = localStorage.getItem('usn');
+            alert(userprint)
+            // cred.pwd = usrinput;
+            // console.log(cred)
+            // console.log(cred);
+            // var password = input
+            window.location.href="..\\..\\Authsynth\\main.html";
+    }
+    // document.getElementById("username-field").innerHTML = text;
+    // window.location.href="Password\\PWreg.html";
+    }
+  </script>
+</head>
+
+<body>
+  <main id="main-holder">
+    <h1 id="login-header">Register Password</h1>
+    
+    <!-- <div id="login-error-msg-holder">
+      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div> -->
+    
+    <form id="register-form" onsubmit)="return false;">
+      <input type="text" name="username" id="username-field" class="register-form-field" placeholder="Password">
+      <!-- <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password"> -->
+      <!-- <input type="submit" value="Submit" id="register-form-submit"> -->
+      <!-- <input   style=position:absolute;top:50%;left:5%;width:40%; type="submit"    onclick="userName()"> -->
+      <input type="button" value="Register Password" onclick="pwReg()" id="register-form-submit">
+      <!-- <h2>JavaScript Prompt</h2> -->
+
+    <!-- <button onclick="myFunction()">Try it</button> -->
+
+    <p id="demo"></p>
+
+    <!-- <script>
+    function myFunction() {
+    let text;
+    let person = prompt("Please enter your name:", "Harry Potter");
+    if (person == null || person == "") {
+        text = "User cancelled the prompt.";
+    } else {
+        text = "Hello " + person + "! How are you today?";
+    }
+    document.getElementById("demo").innerHTML = text;
+    }
+    </script> -->
+    </form>
+    <!-- <button id="register-button" class="float-left submit-button" >Register</button>
+
+      <script type="text/javascript">
+        document.getElementById("register").onclick = function () {
+            location.href = "www.youtube.com";
+        };
+      </script> -->
+
+    <!-- <form id="register-form-id">
+      <input type="submit" value="Register" id="register-form-submit">
+    </form> -->
+  
+  </main>
+</body>
+
+</html>

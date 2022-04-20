@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="cs.css">
+  <script defer src="jav.js"></script>
+  <script>
+    function loginLocation() {
+        window.location.href="..\\Register\\reg.html";
+    }
+    function regLocation() {
+        window.location.href="../Testfolder/main.html";
+    }
+  </script>
+</head>
+
+<body>
+  <main id="main-holder">
+    <h1 id="login-header">Login</h1>
+    
+    <div id="login-error-msg-holder">
+      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div>
+    
+    <form id="login-form">
+      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+      <input type="submit" value="Login" id="login-form-submit">
+      <input type="button" value="Register" onclick="regLocation()" id="register-form-submit">
+    </form>
+    <!-- <button id="register-button" class="float-left submit-button" >Register</button>
+
+      <script type="text/javascript">
+        document.getElementById("register").onclick = function () {
+            location.href = "www.youtube.com";
+        };
+      </script> -->
+
+    <!-- <form id="register-form-id">
+      <input type="submit" value="Register" id="register-form-submit">
+    </form> -->
+  
+  </main>
+</body>
+
+</html>
